@@ -1,8 +1,8 @@
 === Advanced Custom Fields: Layer Slider Field ===
 Contributors: AUTHOR_NAME
 Tags: PLUGIN_TAGS
-Requires at least: 4.1
-Tested up to: 4.1
+Requires at least: 3.6
+Tested up to: I actually haven't tested this sh** yet
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

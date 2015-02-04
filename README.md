@@ -1,56 +1,27 @@
-# ACF Field Type Template
+# ACF acf-layer_slider Field
 
-Welcome to the Advanced Custom Fields field type template repository.
-Here you will find a starter-kit for creating a new ACF field type. This start-kit will work as a normal WP plugin.
+1. This acf extension REQUIRES layerslider!
+2. Wanna know how to use it?
+<?php layerslider(get_field('layer_slider')); ?>
 
-For more information about creating a new field type, please read the following article:
-http://www.advancedcustomfields.com/resources/tutorials/creating-a-new-field-type/
 
-### Structure
-
-* `/css`:  folder for .css files.
-* `/images`: folder for image files
-* `/js`: folder for .js files
-* `/lang`: folder for .pot, .po and .mo files
-* `acf-FIELD_NAME.php`: Main plugin file that includes the correct field file based on the ACF version
-* `FIELD_NAME-v5.php`: Field class compatible with ACF version 5 
-* `FIELD_NAME-v4.php`: Field class compatible with ACF version 4
-* `readme.txt`: WordPress readme file to be used by the WordPress repository
-
-### step 1.
-
-This template uses `PLACEHOLDERS` such as `FIELD_NAME` throughout the file names and code. Use the following list of placeholders to do a 'find and replace':
-
-* `FIELD_NAME`: Single word, no spaces. Underscores allowed. eg. donate_button
-* `FIELD_LABEL`: Multiple words, can include spaces, visible when selecting a field type. eg. Donate Button
-* `PLUGIN_URL`: Url to the github or WordPress repository
-* `PLUGIN_TAGS`: Comma separated list of relevant tags
-* `SHORT_DESCRIPTION`: Brief description of the field type, no longer than 2 lines
-* `EXTENDED_DESCRIPTION`: Extended description of the field type
-* `AUTHOR_NAME`: Name of field type author
-* `AUTHOR_URL`: URL to author's website
-
-### step 2.
-
-Edit the `FIELD_NAME-v5.php` and `FIELD_NAME-v4.php` files (now renamed using your field name) and include your custom code in the appropriate functions. 
-Please note that v4 and v5 field classes have slightly different functions. For more information, please read:
-* http://www.advancedcustomfields.com/resources/tutorials/creating-a-new-field-type/
-
-### step 3.
-
-Edit this `README.md` file with the appropriate information and delete all content above and including the following line.
-
------------------------
-
-# ACF FIELD_LABEL Field
-
-SHORT_DESCRIPTION
 
 -----------------------
 
 ### Description
 
-EXTENDED_DESCRIPTION
+Ever tired of telling your client to use a shortcode in a wysiwyg area, or another acf field created for the sole purpose of throwing in an layerslider shortcode?
+Well no longer! This extremely simple extension will query layerslider for a list of all sliders, and allow your client to select which one they want in a comfy cozy select field.
+This simply queries layerslider, and puts the id of the slider selected by the user into the acf field. Then when you return your acf field with get_field('field_name'), you pass the output ID to the layerslider 'layerslider()' function.
+In your template you can do something like this
+
+<?php layerslider(get_field('acf_field_name_or_whatever_i_guess_you_called_it')); ?>
+
+... and BAM, your front end is looking damn sexy. Now your client can go ****ing crazy adding layers and animations and sh**.
+
+This is mostly so you can use ACF logic and stuff with layerslider. Please enjoy.
+
+Email tkin1235@gmail.com for comments/questions
 
 ### Compatibility
 
@@ -60,9 +31,9 @@ This ACF field type is compatible with:
 
 ### Installation
 
-1. Copy the `acf-FIELD_NAME` folder into your `wp-content/plugins` folder
-2. Activate the FIELD_LABEL plugin via the plugins admin page
-3. Create a new field via ACF and select the FIELD_LABEL type
+1. Copy the `acf-layer_skuder` folder into your `wp-content/plugins` folder
+2. Activate the layer_slider plugin via the plugins admin page
+3. Create a new field via ACF and select the layer_slider type
 4. Please refer to the description for more info regarding the field type settings
 
 ### Changelog
