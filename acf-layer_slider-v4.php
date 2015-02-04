@@ -20,7 +20,7 @@ class acf_field_layer_slider extends acf_field {
 	function __construct()
 	{
 		// vars
-		$this->name = 'ls_page_slider';
+		$this->name = 'layer_slider';
 		$this->label = __('Layer Slider');
 
 
@@ -170,38 +170,23 @@ class acf_field_layer_slider extends acf_field {
 
 	function create_field( $field )
 	{
+		if( $sliders = lsSliders(200, false, true)) {
 
-
-		global $wpdb;
-
-		// Table name
-		$table_name = $wpdb->prefix . "layerslider";
-
-		// Get sliders
-		$sliders = lsSliders(200, false, true);
-
-		echo '<select id="' . $field['id'] . '" class="' . $field['class'] . '" name="' . $field['name'] . '" >';
-
-
-
-		if(!empty($sliders)) {
-			$name = empty($item['name']) ? 'Unnamed' : $item['name'];
-
-			foreach($sliders as $key => $item) {
+			echo '<select id="' . $field['id'] . '" class="' . $field['class'] . '" name="' . $field['name'] . '" >';
+			if (!empty($sliders)) {
 				$name = empty($item['name']) ? 'Unnamed' : $item['name'];
-				$id = $item['id'];
-
-				echo '<option', $field['value'] == $id ? ' selected="selected"' : '', ' value="'.$id.'">'.$name.'</option>';
+				foreach ($sliders as $key => $item) {
+					$name = empty($item['name']) ? 'Unnamed' : $item['name'];
+					$id = $item['id'];
+					echo '<option', $field['value'] == $id ? ' selected="selected"' : '', ' value="' . $id . '">' . $name . '</option>';
+				}
+				echo '</select>';
+			} else {
+				echo '<p>No Sliders</p>';
 			}
-			?>
-        </select> <?php } else{
-			echo'<p>No Sliders</p>';
+		}else{
+			echo '<p>oh no, try installing layerslider first, or something much wronger happened</p>';
 		}
-
-
-
-
-
 	}
 
 
